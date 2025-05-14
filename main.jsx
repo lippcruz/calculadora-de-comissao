@@ -9,4 +9,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>
 );
 
-// Nenhum service worker registrado.
+// Nenhum service worker registrado — removido para compatibilidade com hospedagens estáticas puras.
