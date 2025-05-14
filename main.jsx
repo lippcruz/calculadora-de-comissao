@@ -1,1 +1,0 @@
-// ReactDOM render sem service worker
