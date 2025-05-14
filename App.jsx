@@ -1,0 +1,1 @@
+// App com barra deslizante logarítmica, histórico, acessibilidade, dark mode
