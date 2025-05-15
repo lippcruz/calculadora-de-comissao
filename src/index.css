@@ -1,6 +1,134 @@
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #f5f5fa;
-  color: #111;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 2.5%; /* Even Darker purple for background */
+    --foreground: 0 0% 98%; /* Light color for text */
+    --card: 250 30% 10%; /* Slightly lighter purple for cards */
+    --card-foreground: 0 0% 98%;
+    --popover: 250 30% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 260 80% 65%; /* Vibrant purple for primary actions */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 250 50% 35%; /* Muted purple for secondary elements */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 250 30% 18%; /* Darker muted purple */
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 270 70% 55%; /* Accent purple */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72.2% 50.6%; /* Brighter destructive color */
+    --destructive-foreground: 0 0% 98%;
+    --border: 250 30% 20%; /* Border color */
+    --input: 250 30% 15%; /* Input background */
+    --ring: 260 80% 70%; /* Ring color for focus */
+    --radius: 0.5rem;
+  }
+
+  .light {
+    --background: 240 50% 96.1%; /* Light lavender for background */
+    --foreground: 240 10% 3.9%; /* Dark color for text */
+    --card: 0 0% 100%; /* White for cards */
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 260 70% 55%; /* Vibrant purple for primary actions */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 30% 90%; /* Light muted purple for secondary elements */
+    --secondary-foreground: 240 10% 3.9%;
+    --muted: 240 30% 93%; /* Lighter muted purple */
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 270 60% 50%; /* Accent purple */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 20% 85%; /* Border color */
+    --input: 240 20% 90%; /* Input background */
+    --ring: 260 70% 60%; /* Ring color for focus */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  /* For visually hiding elements but keeping them accessible */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+.main-gradient-bg {
+  @apply bg-background;
+}
+
+.glass-card {
+  @apply bg-card/80 backdrop-blur-lg border border-border shadow-2xl rounded-xl;
+}
+
+.result-card-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--accent) / 0.8));
+}
+
+.ad-placeholder {
+  @apply flex items-center justify-center bg-transparent text-muted-foreground rounded-lg border-2 border-dashed border-border/30;
+  font-size: 0.8rem;
+  min-height: 50px; 
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
